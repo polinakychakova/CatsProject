@@ -18,6 +18,7 @@ public class AnimalsGoodTest {
         this.animalKind = animalKind;
         this.expected = expected;
     }
+
     @Mock
     Animal animal;
     @Parameterized.Parameters //для произведения

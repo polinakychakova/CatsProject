@@ -21,6 +21,7 @@ public class Lion {
     @Mock
     Feline feline = new Feline();
 
+
     public int getKittens() {
         return feline.getKittens();
     }

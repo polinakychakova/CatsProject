@@ -20,6 +20,7 @@ public class AnimalCatchExceptionTest {
     }
     @Mock
     Animal animal;
+
     @Parameterized.Parameters //для произведения
     public static Object[] getKindData() {
         return new Object[][]{
