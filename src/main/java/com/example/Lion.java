@@ -16,10 +16,17 @@ public class Lion {
         }
     }
 
-    Feline feline = new Feline();
+//    Feline feline = new Feline();
 
+//    public int getKittens() {
+//        return feline.getKittens();
+//    }
     public int getKittens() {
-        return feline.getKittens();
+        return getKittens(1);
+    }
+
+    public int getKittens(int kittensCount) {
+        return kittensCount;
     }
 
     public boolean doesHaveMane() {
@@ -27,6 +34,12 @@ public class Lion {
     }
 
     public List<String> getFood() throws Exception {
-        return feline.getFood("Хищник");
+        return Animal.getFood("Хищник");
     }
+
+    // Для реализаци изолированнасти класса Lion от Feline в класс Lion добавлен метод getKittens()
+    // который возвращает количество детенышей, аналогично с методом из класса Feline
+
+    // Для изоляции метода getFood был использован метод родителя Animal.getFood(String)
+    // который был преобразован в статический, чтобы иметь доступ к методу без необходимости создавать объект класа Animal
 }
