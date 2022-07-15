@@ -9,12 +9,12 @@ import java.util.List;
 
 
 @RunWith(Parameterized.class)
-public class AnimalCatchExceptionTest {
+public class AnimalGetFoodCatchExceptionTest {
     final static String wrongVar = "Покемон";
     private final String animalKind;
     private final List<String> expected;
 
-    public AnimalCatchExceptionTest(String animalKind, List<String> expected) {
+    public AnimalGetFoodCatchExceptionTest(String animalKind, List<String> expected) {
         this.animalKind = animalKind;
         this.expected = expected;
     }
