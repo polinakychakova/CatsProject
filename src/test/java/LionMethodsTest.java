@@ -5,21 +5,23 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-//@RunWith(MockitoJUnitRunner.class)
+@RunWith(MockitoJUnitRunner.class)
 public class LionMethodsTest {
 
-//    @Mock
-//    Feline feline ;
-    Feline feline = new Feline();
+    @Mock
+    Feline feline ;
+//    Feline feline = new Feline();
 
     @Test
     public void LionGetKittensTest() throws Exception {
         Lion lion = new Lion(feline);
+        Mockito.when(feline.getKittens()).thenReturn(1);
         assertEquals(1, lion.getKittens());
     }
 
@@ -31,13 +33,14 @@ public class LionMethodsTest {
             Lion lion = new Lion(sex);
         }, "Exception was expected");
 
-        Assertions.assertEquals("Используйте допустимые значения пола животного - самец или самка", thrown.getMessage());
+        assertEquals("Используйте допустимые значения пола животного - самец или самка", thrown.getMessage());
 
     }
 
     @Test
     public void LionGetFoodTest() throws Exception {
         Lion lion = new Lion(feline);
+        Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         assertEquals(List.of("Животные", "Птицы", "Рыба"), lion.getFood());
     }
 }
