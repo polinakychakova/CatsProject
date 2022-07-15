@@ -3,6 +3,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
@@ -18,8 +19,6 @@ public class AnimalsGetFoodNormalTest {
         this.expected = expected;
     }
 
-    @Mock
-    Animal animal;
     @Parameterized.Parameters
     public static Object[] getKindData() {
         return new Object[][]{
@@ -30,6 +29,7 @@ public class AnimalsGetFoodNormalTest {
 
     @Test
     public void getFoodTest() throws Exception {
+        Animal animal = new Animal();
         List<String> actual = animal.getFood(animalKind);
         assertEquals(expected, actual);
     }

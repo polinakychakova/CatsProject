@@ -2,6 +2,8 @@ import com.example.Lion;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 
 import java.util.List;
 
@@ -28,7 +30,6 @@ public class LionNormConstructorTest {
     @Test
     public void getFoodTest() throws Exception {
         Lion lion = new Lion(sex);
-        boolean actual = lion.doesHaveMane();
-        assertEquals(expected, actual);
+        assertEquals(expected, lion.doesHaveMane());
     }
 }

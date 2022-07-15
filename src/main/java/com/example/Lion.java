@@ -4,7 +4,13 @@ import java.util.List;
 
 public class Lion {
 
+    private  Feline feline; // поле добавлено для реализации инъекции зависимостей
+
     boolean hasMane;
+
+    public Lion(Feline feline){
+        this.feline = feline;
+    } // добавлен конструктор для поля feline
 
     public Lion(String sex) throws Exception {
         if ("Самец".equals(sex)) {
@@ -16,17 +22,8 @@ public class Lion {
         }
     }
 
-//    Feline feline = new Feline();
-
-//    public int getKittens() {
-//        return feline.getKittens();
-//    }
     public int getKittens() {
-        return getKittens(1);
-    }
-
-    public int getKittens(int kittensCount) {
-        return kittensCount;
+        return feline.getKittens();
     }
 
     public boolean doesHaveMane() {
@@ -34,11 +31,7 @@ public class Lion {
     }
 
     public List<String> getFood() throws Exception {
-        return Animal.getFood("Хищник");
+        return feline.getFood("Хищник");
     }
 
-    // Для реализаци изолированнасти класса Lion от Feline в класс Lion добавлен метод getKittens()
-    // который возвращает количество детенышей, аналогично с методом из класса Feline
-
-    // Для изоляции метода getFood был использован метод родителя Animal.getFood(String)
 }

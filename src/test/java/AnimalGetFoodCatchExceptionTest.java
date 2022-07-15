@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 
 import java.util.List;
 
@@ -18,8 +19,6 @@ public class AnimalGetFoodCatchExceptionTest {
         this.animalKind = animalKind;
         this.expected = expected;
     }
-    @Mock
-    Animal animal;
 
     @Parameterized.Parameters //для произведения
     public static Object[] getKindData() {
@@ -32,8 +31,8 @@ public class AnimalGetFoodCatchExceptionTest {
 
     @Test
     public void getFoodTest() throws Exception {
+        Animal animal = new Animal();
         Exception exc = new Exception("Неизвестный вид животного, используйте значение Травоядное или Хищник");
-
         Exception thrown = Assertions.assertThrows(Exception.class, () -> {
             animal.getFood(animalKind);
         }, "Exception was expected");

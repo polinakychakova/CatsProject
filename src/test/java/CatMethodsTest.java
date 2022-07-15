@@ -1,16 +1,21 @@
 import com.example.Cat;
 import com.example.Feline;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class CatTest {
+@RunWith(MockitoJUnitRunner.class)
+public class CatMethodsTest {
+    List<String> predatorFoodStr = List.of("Животные", "Птицы", "Рыба");
     @Mock
-    Feline feline = new Feline();
-
+//    Feline feline = new Feline();
+    Feline feline;
     @Test
     public void CatGetSoundTest() throws Exception {
         Cat cat = new Cat(feline);
@@ -20,7 +25,8 @@ public class CatTest {
     @Test
     public void CatGetFoodTest() throws Exception {
         Cat cat = new Cat(feline);
-        assertEquals(List.of("Животные", "Птицы", "Рыба" ), cat.getFood());
+        Mockito.when(feline.eatMeat()).thenReturn(predatorFoodStr);
+        assertEquals(predatorFoodStr, cat.getFood());
     }
 
 }
