@@ -36,6 +36,7 @@ public class FelineMethodsTest {
     public void FelineEatMeatTest() throws Exception {
         Mockito.when(animal.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         assertEquals(List.of("Животные", "Птицы", "Рыба"), feline.eatMeat());
+//        assertEquals(List.of("Животные", "Птицы", "Рыба"), animal.getFood("Хищник"));
     }
 
 
