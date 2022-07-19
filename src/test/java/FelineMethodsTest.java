@@ -5,19 +5,18 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+
 @RunWith(MockitoJUnitRunner.class)
 public class FelineMethodsTest {
-
-    Feline feline = new Feline();
-
-    @Mock
-    Animal animal ;
+    @Spy
+    Feline feline;
 
     @Test
     public void FelineGetKittensTest(){
@@ -34,7 +33,7 @@ public class FelineMethodsTest {
 
     @Test
     public void FelineEatMeatTest() throws Exception {
-        Mockito.when(animal.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         assertEquals(List.of("Животные", "Птицы", "Рыба"), feline.eatMeat());
 //        assertEquals(List.of("Животные", "Птицы", "Рыба"), animal.getFood("Хищник"));
     }
